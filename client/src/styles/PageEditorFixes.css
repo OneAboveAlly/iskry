@@ -1,0 +1,61 @@
+/* Critical fixes for PageEditor visibility */
+.page-editor,
+.page-editor *,
+.content-editor,
+.content-editor *,
+.enhanced-quill-editor,
+.enhanced-quill-editor *,
+.quill,
+.quill *,
+.ql-container,
+.ql-toolbar,
+.ql-editor {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.content-editor {
+  min-height: 300px !important;
+  display: block !important;
+  margin-bottom: 1rem;
+  border: 1px solid #eee;
+}
+
+/* Fix for ReactQuill toolbar */
+.ql-toolbar.ql-snow {
+  display: flex !important;
+  flex-wrap: wrap !important;
+}
+
+.ql-toolbar.ql-snow button {
+  display: inline-block !important;
+}
+
+.ql-container.ql-snow {
+  min-height: 250px !important;
+}
+
+/* Fix for pages grid layout */
+.pages-grid {
+  display: grid !important;
+  grid-template-columns: 300px 1fr !important;
+  visibility: visible !important;
+}
+
+@media (max-width: 992px) {
+  .pages-grid {
+    grid-template-columns: 1fr !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+}
+
+/* Force page editor container to be visible */
+.page-editor-container {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  min-height: 500px !important;
+  z-index: 10 !important;
+} 

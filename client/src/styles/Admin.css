@@ -1,0 +1,962 @@
+/* Style dla zaawansowanego edytora tekstu */
+.quill-editor {
+  margin-bottom: 2rem;
+}
+
+.ql-editor {
+  min-height: 180px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.ql-toolbar {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  background-color: #f9fafb;
+}
+
+.ql-container {
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  background-color: white;
+}
+
+/* Style dla podglądu ogłoszeń w panelu administratora */
+.admin-announcement-preview h1,
+.admin-announcement-preview h2,
+.admin-announcement-preview h3 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.admin-announcement-preview ul,
+.admin-announcement-preview ol {
+  margin: 0.5rem 0;
+  padding-left: 2rem;
+}
+
+.admin-announcement-preview p {
+  margin: 0.5rem 0;
+}
+
+.admin-announcement-preview blockquote {
+  border-left: 3px solid #ddd;
+  padding-left: 0.8rem;
+  margin: 0.8rem 0;
+  color: #666;
+}
+
+.admin-announcement-preview img {
+  max-width: 100%;
+  height: auto;
+  margin: 0.8rem 0;
+  border-radius: 4px;
+}
+
+/* Podświetlenie kolorów */
+.ql-snow .ql-picker.ql-color .ql-picker-label,
+.ql-snow .ql-picker.ql-background .ql-picker-label {
+  padding: 2px 4px;
+}
+
+.ql-snow .ql-picker.ql-color .ql-picker-item,
+.ql-snow .ql-picker.ql-background .ql-picker-item {
+  margin: 1px;
+}
+
+/* Główny kontener administratora */
+.admin-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Style dla kart */
+.card-container {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  height: fit-content;
+}
+
+.card-header {
+  padding: 1.2rem 1.5rem;
+  background: linear-gradient(90deg, #f8f9fa, white);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #f0f0f0;
+  cursor: pointer;
+}
+
+.card-toggle {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  color: #6c757d;
+}
+
+.card-toggle:hover {
+  background-color: #f8f9fa;
+  color: #495057;
+}
+
+.form-container {
+  padding: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #495057;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+.submit-button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(79, 172, 254, 0.3);
+}
+
+.submit-button:hover {
+  box-shadow: 0 6px 15px rgba(79, 172, 254, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Wyszukiwarka */
+.search-container {
+  position: relative;
+  padding: 0 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 2.5rem;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+.search-icon {
+  position: absolute;
+  left: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #adb5bd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Pusta lista wyników */
+.empty-results {
+  padding: 2rem;
+  text-align: center;
+}
+
+.empty-results svg {
+  margin-bottom: 1rem;
+}
+
+/* Karty użytkowników */
+.users-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+  padding: 1.5rem;
+}
+
+.user-card {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: #f8f9fa;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.user-card:hover {
+  background-color: #e9ecef;
+  transform: translateY(-2px);
+}
+
+.user-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #4facfe, #00f2fe);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  margin-right: 1rem;
+  flex-shrink: 0;
+}
+
+.user-info {
+  flex: 1;
+}
+
+.user-info h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+  color: #212529;
+}
+
+.user-info p {
+  font-size: 0.85rem;
+  color: #6c757d;
+  margin: 0.25rem 0 0.5rem;
+}
+
+.user-status {
+  display: flex;
+  align-items: center;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 50px;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+.status-approved {
+  background-color: rgba(46, 204, 113, 0.15);
+  color: #2ecc71;
+}
+
+.status-pending {
+  background-color: rgba(243, 156, 18, 0.15);
+  color: #f39c12;
+}
+
+.user-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-left: 0.5rem;
+}
+
+.action-button {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.approve-button {
+  background-color: rgba(46, 204, 113, 0.15);
+  color: #2ecc71;
+}
+
+.approve-button:hover {
+  background-color: rgba(46, 204, 113, 0.3);
+}
+
+.delete-button {
+  background-color: rgba(231, 76, 60, 0.15);
+  color: #e74c3c;
+}
+
+.delete-button:hover {
+  background-color: rgba(231, 76, 60, 0.3);
+}
+
+/* Lista ogłoszeń */
+.announcements-list {
+  padding: 1rem 1.5rem;
+}
+
+.announcement-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+  background-color: #f8f9fa;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.announcement-item:hover {
+  background-color: #e9ecef;
+}
+
+.announcement-title {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.announcement-meta {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.75rem;
+  color: #6c757d;
+  margin-right: 2rem;
+}
+
+.delete-announcement {
+  position: absolute;
+  right: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background-color: rgba(231, 76, 60, 0.15);
+  color: #e74c3c;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.delete-announcement:hover {
+  background-color: rgba(231, 76, 60, 0.3);
+}
+
+/* Modalne okna */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+}
+
+.modal-content {
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  animation: modalFadeIn 0.3s ease;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.modal-header h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.close-button {
+  border: none;
+  background: none;
+  font-size: 1.5rem;
+  color: #adb5bd;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.close-button:hover {
+  background-color: #f8f9fa;
+  color: #495057;
+}
+
+.modal-body {
+  padding: 1.5rem;
+}
+
+.modal-footer {
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  border-top: 1px solid #f0f0f0;
+}
+
+/* Szczegóły użytkownika w modalu */
+.user-details-modal .modal-body {
+  display: flex;
+  align-items: flex-start;
+}
+
+.user-detail-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #4facfe, #00f2fe);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 1.5rem;
+  margin-right: 1.5rem;
+  flex-shrink: 0;
+}
+
+.user-detail-info {
+  flex: 1;
+}
+
+.user-detail-info p {
+  margin: 0.5rem 0;
+  font-size: 0.95rem;
+}
+
+/* Przyciski w modalach */
+.approve-button-modal {
+  padding: 0.5rem 1rem;
+  background-color: #2ecc71;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.approve-button-modal:hover {
+  background-color: #27ae60;
+}
+
+.delete-button-modal {
+  padding: 0.5rem 1rem;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.delete-button-modal:hover {
+  background-color: #c0392b;
+}
+
+.cancel-button {
+  padding: 0.5rem 1rem;
+  background-color: #f8f9fa;
+  color: #495057;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cancel-button:hover {
+  background-color: #e9ecef;
+}
+
+.confirm-delete-button {
+  padding: 0.5rem 1rem;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.confirm-delete-button:hover {
+  background-color: #c0392b;
+}
+
+.warning-text {
+  color: #e74c3c;
+  font-weight: 500;
+  margin-top: 0.5rem;
+}
+
+/* Responsywność */
+@media (max-width: 768px) {
+  .ql-toolbar {
+    flex-wrap: wrap;
+  }
+  
+  .ql-formats {
+    margin-right: 0;
+    margin-bottom: 4px;
+  }
+  
+  .users-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .user-details-modal .modal-body {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .user-detail-avatar {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+  
+  .modal-footer {
+    flex-direction: column-reverse;
+  }
+  
+  .modal-footer button {
+    width: 100%;
+  }
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  .card-container {
+    background: #1e2329;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-header {
+    background: linear-gradient(90deg, #2a3038, #1e2329);
+    border-bottom: 1px solid #343a40;
+  }
+  
+  .card-toggle {
+    color: #adb5bd;
+  }
+  
+  .card-toggle:hover {
+    background-color: #343a40;
+    color: #ced4da;
+  }
+  
+  .form-group label {
+    color: #ced4da;
+  }
+  
+  .form-group input {
+    background-color: #2a3038;
+    border-color: #343a40;
+    color: #ced4da;
+  }
+  
+  .form-group input:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+  }
+  
+  .search-input {
+    background-color: #2a3038;
+    border-color: #343a40;
+    color: #ced4da;
+  }
+  
+  .user-card {
+    background-color: #2a3038;
+  }
+  
+  .user-card:hover {
+    background-color: #343a40;
+  }
+  
+  .user-info h3 {
+    color: #ced4da;
+  }
+  
+  .user-info p {
+    color: #adb5bd;
+  }
+  
+  .announcement-item {
+    background-color: #2a3038;
+  }
+  
+  .announcement-item:hover {
+    background-color: #343a40;
+  }
+  
+  .announcement-meta {
+    color: #adb5bd;
+  }
+  
+  .modal-content {
+    background-color: #1e2329;
+  }
+  
+  .modal-header, .modal-footer {
+    border-color: #343a40;
+  }
+  
+  .close-button:hover {
+    background-color: #343a40;
+    color: #ced4da;
+  }
+  
+  .cancel-button {
+    background-color: #343a40;
+    color: #ced4da;
+    border-color: #495057;
+  }
+  
+  .cancel-button:hover {
+    background-color: #495057;
+  }
+  
+  .ql-toolbar {
+    background-color: #2a3038;
+    border-color: #343a40;
+  }
+  
+  .ql-container {
+    background-color: #2a3038;
+    border-color: #343a40;
+  }
+  
+  .ql-editor {
+    color: #ced4da;
+  }
+}
+
+/* Materials Section */
+.materials-section {
+  margin-top: 2rem;
+}
+
+.materials-section .section-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* DatePicker selected day styling */
+.selected-day {
+  background-color: #3a506b !important;
+  color: white !important;
+  border-radius: 0.3rem;
+  font-weight: bold;
+}
+
+/* Style dla kalendarza dostępności */
+.react-calendar {
+  width: 100%;
+  max-width: 350px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  font-family: inherit;
+}
+
+.react-calendar__tile {
+  padding: 10px;
+  border-radius: 4px;
+  position: relative;
+}
+
+.selected-day {
+  background-color: #3a506b !important;
+  color: white !important;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.available-day {
+  background-color: #e6f7fa !important;
+  color: #3a506b !important;
+  border-radius: 4px;
+}
+
+.react-calendar__tile:enabled:hover {
+  background-color: #f0f0f0;
+}
+
+.react-calendar__navigation button:enabled:hover,
+.react-calendar__navigation button:enabled:focus {
+  background-color: #f0f0f0;
+}
+
+.react-calendar__month-view__days__day--weekend {
+  color: #d10000;
+}
+
+.react-calendar__tile--now {
+  background: #ffffe0;
+}
+
+.react-calendar__tile--active {
+  background: #3a506b;
+  color: white;
+}
+
+/* Aby usunąć podwójne tło gdy data jest zarówno aktywna i selected */
+.react-calendar__tile--active.selected-day {
+  background: #3a506b !important;
+}
+
+.react-calendar__tile--active.available-day {
+  background: #e6f7fa !important;
+}
+
+/* Styl dla dostępności admina na liście */
+.admin-availability-page ul {
+  margin-top: 16px;
+}
+
+.admin-availability-page ul li {
+  transition: all 0.2s ease;
+}
+
+.admin-availability-page ul li:hover {
+  background-color: #f5f9fc;
+}
+
+/* Styl dla przycisku usuwania dostępności */
+.delete-availability-btn {
+  opacity: 0.7;
+}
+
+.delete-availability-btn:hover {
+  opacity: 1;
+  background-color: rgba(220, 53, 69, 0.1) !important;
+}
+
+/* Animacja dla komunikatów */
+.error, .success {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Styles for Admin Availability Page */
+.availability-list-section {
+  margin-top: 32px;
+}
+
+.availability-list-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.availability-list-section ul li {
+  padding: 16px 20px;
+  border-bottom: 1px solid #e2e8f0;
+  transition: background-color 0.2s;
+}
+
+.availability-list-section ul li:hover {
+  background-color: #f7fafc;
+}
+
+.availability-list-section ul li.selected {
+  background-color: #ebf4ff;
+}
+
+/* Dostosowania do scrollbara */
+.availability-list-section .scroll-container {
+  max-height: 400px;
+  overflow-y: auto;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+}
+
+/* Style dla scrollbara */
+.availability-list-section .scroll-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.availability-list-section .scroll-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 8px;
+}
+
+.availability-list-section .scroll-container::-webkit-scrollbar-thumb {
+  background: #cbd5e0;
+  border-radius: 8px;
+}
+
+.availability-list-section .scroll-container::-webkit-scrollbar-thumb:hover {
+  background: #a0aec0;
+}
+
+.delete-multiple-button {
+  background: #c53030;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.delete-multiple-button:hover {
+  background: #9b2c2c;
+}
+
+.delete-availability-btn {
+  background: #feb2b2;
+  color: #c53030;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.delete-availability-btn:hover {
+  background: #fc8181;
+}
+
+.notifications-center {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+  margin-bottom: 2rem;
+  padding: 1.5rem 2rem;
+}
+
+.notifications-center h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #3a506b;
+}
+
+.notifications-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.notification-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 15px;
+  transition: background 0.2s;
+}
+
+.notification-item:last-child {
+  border-bottom: none;
+}
+
+.notification-item.read {
+  background: #f8f9fa;
+  color: #888;
+}
+
+.notification-message {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.notification-type {
+  font-weight: bold;
+  color: #3a506b;
+  margin-right: 10px;
+}
+
+.notification-text {
+  margin-right: 10px;
+}
+
+.notification-date {
+  font-size: 13px;
+  color: #aaa;
+}
+
+.mark-read-btn {
+  background: #3a506b;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 14px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-left: 20px;
+  transition: background 0.2s;
+}
+
+.mark-read-btn:hover {
+  background: #1c2a3a;
+}

@@ -1,0 +1,3 @@
+/* This file is maintained for backward compatibility */
+/* All editor styles are now in QuillEditorFixes.css */
+@import './QuillEditorFixes.css'; 

@@ -1,0 +1,195 @@
+/* Główne style dla edytora */
+.ql-toolbar.ql-snow {
+  border: 1px solid #e2e8f0 !important;
+  border-top-left-radius: 8px !important;
+  border-top-right-radius: 8px !important;
+  background: #f8fafc !important;
+  padding: 12px !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 10px !important;
+  position: relative !important;
+  z-index: 50 !important;
+}
+
+/* Grupy przycisków */
+.ql-formats {
+  display: flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  margin-right: 8px !important;
+}
+
+.ql-formats:last-child {
+  margin-right: 0 !important;
+}
+
+/* Przyciski */
+.ql-formats button {
+  width: 32px !important;
+  height: 32px !important;
+  padding: 6px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 4px !important;
+  background: white !important;
+  cursor: pointer !important;
+}
+
+.ql-formats button:hover {
+  background: #f1f5f9 !important;
+  border-color: #cbd5e0 !important;
+}
+
+.ql-formats button.ql-active {
+  background: #e6f2ff !important;
+  border-color: #4299e1 !important;
+  color: #4299e1 !important;
+}
+
+/* SVG w przyciskach */
+.ql-formats button svg {
+  width: 20px !important;
+  height: 20px !important;
+  display: block !important;
+  margin: auto !important;
+}
+
+/* Podstawowe style dla dropdownów */
+.ql-picker {
+  position: relative !important;
+  height: 32px !important;
+}
+
+/* Label dropdowna */
+.ql-picker-label {
+  height: 32px !important;
+  padding: 0 12px !important;
+  display: flex !important;
+  align-items: center !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 4px !important;
+  background: white !important;
+  cursor: pointer !important;
+  min-width: 100px !important;
+  font-size: 14px !important;
+  color: #4a5568 !important;
+}
+
+.ql-picker-label:hover {
+  border-color: #cbd5e0 !important;
+}
+
+/* Lista opcji w dropdownie */
+.ql-picker-options {
+  display: none !important;
+  position: absolute !important;
+  top: 100% !important;
+  left: 0 !important;
+  margin-top: 4px !important;
+  background: white !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 4px !important;
+  padding: 4px 0 !important;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1) !important;
+  z-index: 999 !important;
+  min-width: 120px !important;
+}
+
+/* Pokaż opcje tylko gdy dropdown jest otwarty */
+.ql-picker.ql-expanded .ql-picker-options {
+  display: block !important;
+}
+
+/* Elementy w dropdownie */
+.ql-picker-item {
+  padding: 8px 12px !important;
+  cursor: pointer !important;
+  color: #4a5568 !important;
+  font-size: 14px !important;
+  display: block !important;
+}
+
+.ql-picker-item:hover {
+  background: #f7fafc !important;
+  color: #2d3748 !important;
+}
+
+/* Etykiety dla dropdownów */
+.ql-header .ql-picker-label::before { content: 'Nagłówek' !important; }
+.ql-header .ql-picker-item[data-value="1"]::before { content: 'Nagłówek 1' !important; }
+.ql-header .ql-picker-item[data-value="2"]::before { content: 'Nagłówek 2' !important; }
+
+.ql-size .ql-picker-label::before { content: 'Rozmiar' !important; }
+.ql-size .ql-picker-item[data-value="small"]::before { content: 'Mały' !important; }
+.ql-size .ql-picker-item[data-value="normal"]::before { content: 'Normalny' !important; }
+.ql-size .ql-picker-item[data-value="large"]::before { content: 'Duży' !important; }
+.ql-size .ql-picker-item[data-value="huge"]::before { content: 'Bardzo duży' !important; }
+
+.ql-font .ql-picker-label::before { content: 'Czcionka' !important; }
+.ql-font .ql-picker-item[data-value="serif"]::before { content: 'Serif' !important; }
+.ql-font .ql-picker-item[data-value="monospace"]::before { content: 'Monospace' !important; }
+
+/* Picker kolorów */
+.ql-color-picker .ql-picker-options,
+.ql-background .ql-picker-options {
+  width: 192px !important;
+  padding: 8px !important;
+  display: none !important;
+}
+
+.ql-color-picker.ql-expanded .ql-picker-options,
+.ql-background.ql-expanded .ql-picker-options {
+  display: grid !important;
+  grid-template-columns: repeat(7, 1fr) !important;
+  gap: 4px !important;
+}
+
+.ql-color-picker .ql-picker-item,
+.ql-background .ql-picker-item {
+  width: 24px !important;
+  height: 24px !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 4px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Kontener edytora */
+.ql-container.ql-snow {
+  border: 1px solid #e2e8f0 !important;
+  border-bottom-left-radius: 8px !important;
+  border-bottom-right-radius: 8px !important;
+  border-top: none !important;
+  font-family: inherit !important;
+}
+
+.ql-editor {
+  min-height: 200px !important;
+  padding: 16px !important;
+  font-size: 16px !important;
+  line-height: 1.6 !important;
+  color: #2d3748 !important;
+}
+
+/* Formatowanie tekstu w edytorze */
+.ql-editor p {
+  margin-bottom: 1em !important;
+}
+
+.ql-editor h1 {
+  font-size: 2em !important;
+  margin: 1em 0 0.5em !important;
+}
+
+.ql-editor h2 {
+  font-size: 1.5em !important;
+  margin: 0.83em 0 0.5em !important;
+}
+
+.ql-editor h3 {
+  font-size: 1.17em !important;
+  margin: 0.67em 0 0.5em !important;
+} 

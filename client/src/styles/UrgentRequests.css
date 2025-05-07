@@ -1,0 +1,290 @@
+.urgent-requests-section {
+  margin-bottom: 2rem;
+  background-color: #fff3f3;
+  border-radius: 8px;
+  padding: 1.5rem;
+  border-left: 4px solid #e74c3c;
+}
+
+.urgent-requests-section h2 {
+  color: #e74c3c;
+  margin-top: 0;
+  display: flex;
+  align-items: center;
+}
+
+.urgent-requests-section h2::before {
+  content: '⚠️';
+  margin-right: 0.5rem;
+}
+
+.urgent-requests-list {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+}
+
+.urgent-request-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.urgent-request-header {
+  background-color: #ffeeee;
+  padding: 0.75rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.urgent-label {
+  background-color: #e74c3c;
+  color: white;
+  font-weight: bold;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+}
+
+.urgent-date {
+  color: #666;
+  font-size: 0.875rem;
+}
+
+.urgent-request-body {
+  padding: 1rem;
+  flex-grow: 1;
+}
+
+.urgent-request-user {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.75rem;
+}
+
+.urgent-request-user strong {
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.urgent-request-user span {
+  color: #666;
+  font-size: 0.875rem;
+}
+
+.urgent-request-message {
+  margin: 0.5rem 0;
+  padding: 0.75rem;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+  border-left: 3px solid #e74c3c;
+  font-style: italic;
+}
+
+.urgent-request-actions {
+  display: flex;
+  padding: 0.75rem 1rem;
+  border-top: 1px solid #eee;
+  gap: 0.5rem;
+}
+
+.urgent-confirm-button,
+.urgent-reject-button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  flex: 1;
+  transition: all 0.2s;
+}
+
+.urgent-confirm-button {
+  background-color: #27ae60;
+  color: white;
+}
+
+.urgent-confirm-button:hover {
+  background-color: #219653;
+}
+
+.urgent-reject-button {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.urgent-reject-button:hover {
+  background-color: #c0392b;
+}
+
+/* Modal styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.rejection-modal {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 500px;
+  padding: 1.5rem;
+}
+
+.rejection-modal h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #4a5568;
+}
+
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  resize: vertical;
+  font-family: inherit;
+  font-size: 0.95rem;
+}
+
+.form-group textarea:focus {
+  outline: none;
+  border-color: #3182ce;
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.2);
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+
+.cancel-button,
+.confirm-button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.cancel-button {
+  background-color: #edf2f7;
+  color: #4a5568;
+}
+
+.cancel-button:hover {
+  background-color: #e2e8f0;
+}
+
+.confirm-button {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.confirm-button:hover {
+  background-color: #c0392b;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .urgent-requests-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+.urgent-request-tabs {
+  display: flex;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.urgent-tab-button {
+  padding: 0.75rem 1.25rem;
+  background: none;
+  border: none;
+  font-size: 0.95rem;
+  color: #4a5568;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+}
+
+.urgent-tab-button.active {
+  color: #e74c3c;
+  border-bottom: 2px solid #e74c3c;
+  font-weight: 600;
+}
+
+.urgent-tab-button:hover:not(.active) {
+  color: #e74c3c;
+  background-color: #f7fafc;
+}
+
+.no-data {
+  text-align: center;
+  padding: 2rem;
+  color: #718096;
+  font-style: italic;
+}
+
+.urgent-request-card.rejected {
+  border-left: 4px solid #e74c3c;
+}
+
+.urgent-request-card.confirmed {
+  border-left: 4px solid #27ae60;
+}
+
+.urgent-label.rejected {
+  background-color: #e74c3c;
+}
+
+.urgent-label.confirmed {
+  background-color: #27ae60;
+}
+
+.rejection-reason {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background-color: #fff5f5;
+  border-radius: 4px;
+  border-left: 3px solid #e74c3c;
+}
+
+.rejection-reason h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 0.9rem;
+  color: #e74c3c;
+}
+
+.rejection-reason p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #4a5568;
+} 

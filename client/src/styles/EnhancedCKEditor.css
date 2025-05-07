@@ -1,0 +1,583 @@
+/* Fix for dropdowns being open by default */
+/* .ql-picker {
+   color: #333;
+} */
+
+/* .ql-picker-options {
+   display: none !important;
+} */
+
+/* .ql-expanded .ql-picker-options {
+   display: block !important;
+} */
+
+/* .ql-picker.ql-expanded .ql-picker-label {
+   border-color: #ccc;
+} */
+
+/* Better image handling - Might still be useful? Keep for now */
+.ql-editor img {
+  max-width: 100%;
+  height: auto !important;
+  display: block;
+  margin: 1em auto;
+  cursor: pointer;
+}
+
+.ql-editor img:hover {
+  box-shadow: 0 0 0 1px #3b82f6;
+}
+
+/* CKEditor Container Styles */
+.enhanced-quill-editor {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  overflow: visible !important; /* Koniecznie visible, aby dropdowny działały */
+  position: relative;
+}
+
+/* Editor container used in forms */
+.editor-container {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+/* Ensure CKEditor has proper dimensions */
+.ck.ck-editor {
+  width: 100% !important;
+  border-radius: 8px !important;
+  overflow: hidden !important;
+}
+
+/* Content area styling */
+.ck-editor__editable_inline {
+  min-height: 300px !important;
+  padding: 16px 20px !important;
+  color: #333 !important;
+  font-family: 'Arial', sans-serif !important;
+  line-height: 1.6 !important;
+  background-color: #fff !important; /* Ensures white background */
+}
+
+/* Better toolbar styling with proper display of icons */
+.ck.ck-toolbar {
+  background: #f8fafc !important;
+  border: 1px solid #e2e8f0 !important;
+  border-bottom: none !important;
+  border-radius: 8px 8px 0 0 !important;
+  padding: 8px !important;
+  z-index: 999 !important; /* Lower than dropdowns */
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 0.5rem !important;
+  width: 100% !important;
+  /* Critical for proper dropdown display */
+  position: relative !important;
+  overflow: visible !important;
+}
+
+/* Make toolbar items container not hide dropdowns */
+.ck.ck-toolbar > .ck-toolbar__items {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  position: relative !important;
+  overflow: visible !important;
+}
+
+.ck.ck-toolbar .ck.ck-toolbar__separator {
+  display: inline-block !important;
+}
+
+.ck.ck-toolbar > * {
+  margin: 0 !important;
+}
+
+/* Fix icon display */
+.ck.ck-icon {
+  width: 20px !important;
+  height: 20px !important;
+  font-size: 16px !important;
+  opacity: 1 !important;
+}
+
+/* Fix icon containers */
+.ck.ck-button:not(.ck-disabled) .ck-icon {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Dropdown panels need higher z-index */
+.ck.ck-dropdown__panel {
+  z-index: 10000 !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 4px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Paragraph dropdown styling */
+.ck-dropdown__button {
+  border-radius: 4px !important;
+  padding: 6px 10px !important;
+  background: #fff !important;
+  border: 1px solid #e2e8f0 !important;
+  color: #334155 !important;
+}
+
+.ck-dropdown__button:hover {
+  background: #f1f5f9 !important;
+}
+
+/* Button styling */
+.ck.ck-button {
+  border-radius: 4px !important;
+  margin: 0 2px !important;
+  padding: 6px !important;
+  background: transparent !important;
+  color: #334155 !important;
+  transition: all 0.2s !important;
+}
+
+.ck.ck-button:hover {
+  background: #f1f5f9 !important;
+}
+
+.ck.ck-button.ck-on {
+  background: #dbeafe !important;
+  color: #3b82f6 !important;
+}
+
+/* Toolbar separators */
+.ck.ck-toolbar__separator {
+  background-color: #e2e8f0 !important;
+  margin: 0 8px !important;
+  width: 1px !important;
+}
+
+/* Content styling */
+.ck.ck-editor__main {
+  border: 1px solid #e2e8f0 !important;
+  border-top: none !important;
+  border-radius: 0 0 8px 8px !important;
+}
+
+.ck-content p {
+  margin-bottom: 1rem !important;
+}
+
+.ck-content h1, 
+.ck-content h2, 
+.ck-content h3 {
+  margin-top: 1.5rem !important;
+  margin-bottom: 1rem !important;
+  color: #1e293b !important;
+  font-weight: 600 !important;
+}
+
+.ck-content h1 {
+  font-size: 1.875rem !important;
+}
+
+.ck-content h2 {
+  font-size: 1.5rem !important;
+}
+
+.ck-content h3 {
+  font-size: 1.25rem !important;
+}
+
+/* Improve list styling */
+.ck-content ul,
+.ck-content ol {
+  padding-left: 1.5rem !important;
+  margin-bottom: 1rem !important;
+}
+
+.ck-content ul li,
+.ck-content ol li {
+  margin-bottom: 0.5rem !important;
+}
+
+/* Tooltip styling */
+.ck.ck-tooltip .ck-tooltip__text {
+  background: #334155 !important;
+  color: #fff !important;
+  border-radius: 4px !important;
+  font-size: 12px !important;
+  padding: 4px 8px !important;
+}
+
+/* Media queries for responsive design */
+@media (max-width: 768px) {
+  .ck.ck-toolbar {
+    padding: 6px !important;
+    flex-wrap: wrap !important;
+  }
+  
+  .ck.ck-button {
+    padding: 4px !important;
+    margin: 1px !important;
+  }
+  
+  .ck-editor__editable_inline {
+    min-height: 200px !important;
+    padding: 12px !important;
+  }
+}
+
+/* Help section styling */
+.editor-tools {
+  padding: 10px 15px;
+  border: 1px solid #e2e8f0;
+  border-top: none;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  background-color: #f8fafc;
+}
+
+.editor-help {
+  font-size: 0.875rem;
+  color: #64748b;
+}
+
+.editor-help summary {
+  cursor: pointer;
+  user-select: none;
+  padding: 5px 0;
+}
+
+.editor-help summary:focus {
+  outline: none;
+}
+
+.help-content {
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 6px;
+  margin-top: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.help-content p {
+  margin-bottom: 8px;
+}
+
+/* Editor error alert styles */
+.editor-error-alert {
+  background-color: #fee2e2;
+  color: #b91c1c;
+  padding: 10px 15px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.editor-error-alert button {
+  background-color: #b91c1c;
+  color: white;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+/* Fix for CKEditor popups/balloons */
+.ck-balloon-panel {
+  z-index: 10000 !important;
+}
+
+/* Ensure SVG icons are visible */
+.ck.ck-icon :not(svg), .ck.ck-icon svg {
+  display: block !important;
+  opacity: 1 !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Make sure buttons display their icons properly */
+.ck.ck-button .ck.ck-button__label {
+  display: inline-block !important;
+  visibility: visible !important;
+}
+
+/* Fix any SVG display issues */
+svg.ck-icon__svg * {
+  fill: currentColor !important;
+}
+
+/* Ensure proper focus state on buttons and controls */
+.ck.ck-button:focus, .ck.ck-button:active {
+  border-color: #3b82f6 !important;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5) !important;
+}
+
+/* Tooltip and contextual balloon positioning */
+.ck.ck-responsive-form {
+  z-index: 10000 !important;
+}
+
+/* Add critical CKEditor styles */
+.ck-reset_all :not(.ck-reset_all-excluded *), .ck[class^=ck-] :not(.ck-reset_all-excluded *) {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  text-decoration: none;
+  vertical-align: middle;
+  transition: none;
+}
+
+/* Root editor styling */
+.ck-root {
+  --ck-color-base-foreground: #fff;
+  --ck-color-base-background: #fff;
+  --ck-color-base-border: #c4c4c4;
+  --ck-color-base-action: #61b045;
+  --ck-color-base-focus: #6cb5f9;
+  --ck-color-base-text: #333;
+  --ck-color-base-active: #198cf0;
+  --ck-color-base-active-focus: #0e7fe1;
+  --ck-color-focus-border-coordinates: 218,81.8%,56.9%;
+  --ck-color-focus-border: hsl(var(--ck-color-focus-border-coordinates));
+  --ck-color-focus-outer-shadow: #bcdefb;
+  --ck-color-focus-disabled-shadow: rgba(119,186,248,.3);
+  --ck-color-base-line: #dcdcdc;
+  --ck-color-base-selection: #d9d9d9;
+  --ck-color-text: var(--ck-color-base-text);
+  --ck-color-shadow-drop: rgba(0,0,0,.15);
+  --ck-color-shadow-drop-active: rgba(0,0,0,.2);
+  --ck-color-shadow-inner: rgba(0,0,0,.1);
+  --ck-color-button-default-background: transparent;
+  --ck-color-button-default-hover-background: #f0f0f0;
+  --ck-color-button-default-active-background: #e6e6e6;
+  --ck-color-button-default-disabled-background: transparent;
+  --ck-color-button-on-background: #f0f7ff;
+  --ck-color-button-on-hover-background: #e6f2ff;
+  --ck-color-button-on-active-background: #dde7f7;
+  --ck-color-button-on-disabled-background: #f0f2f4;
+  --ck-color-button-action-background: var(--ck-color-base-action);
+  --ck-color-button-action-hover-background: #579e3d;
+  --ck-color-button-action-active-background: #53973a;
+  --ck-color-button-action-disabled-background: #7ec365;
+  --ck-color-button-action-text: var(--ck-color-base-background);
+  --ck-color-button-save: #008a00;
+  --ck-color-button-cancel: #db3700;
+  --ck-color-button-on-color: #000;
+  --ck-color-button-toggle-on: #3b82f6;
+  --ck-color-button-toggle-off-hover: #dbeafe;
+  --ck-color-list-background: var(--ck-color-base-background);
+  --ck-color-list-button-hover-background: var(--ck-color-button-default-hover-background);
+  --ck-color-list-button-on-background: var(--ck-color-button-on-background);
+  --ck-color-list-button-on-background-focus: var(--ck-color-button-on-active-background);
+  --ck-color-list-button-on-text: var(--ck-color-button-on-color);
+  --ck-color-panel-background: var(--ck-color-base-background);
+  --ck-color-panel-border: var(--ck-color-base-border);
+  --ck-color-toolbar-background: var(--ck-color-base-background);
+  --ck-color-toolbar-border: var(--ck-color-base-border);
+  --ck-color-tooltip-background: var(--ck-color-base-text);
+  --ck-color-tooltip-text: var(--ck-color-base-background);
+  --ck-color-engine-placeholder-text: #707070;
+  --ck-color-upload-bar-background: #6cb5f9;
+  --ck-color-link-default: #0000f0;
+  --ck-color-link-selected-background: #ebf8ff;
+  --ck-color-link-fake-selection: rgba(49,132,253,.5);
+  --ck-color-highlight-background: #ff0;
+  --ck-disabled-opacity: .5;
+  --ck-focus-outer-shadow-geometry: 0 0 0 3px;
+  --ck-focus-outer-shadow: var(--ck-focus-outer-shadow-geometry) var(--ck-color-focus-outer-shadow);
+  --ck-focus-disabled-outer-shadow: var(--ck-focus-outer-shadow-geometry) var(--ck-color-focus-disabled-shadow);
+  --ck-focus-ring: 1px solid var(--ck-color-focus-border);
+  --ck-font-size-base: 13px;
+  --ck-line-height-base: 1.84615;
+  --ck-font-face: Helvetica,Arial,Tahoma,Verdana,sans-serif;
+  --ck-font-size-tiny: 0.7em;
+  --ck-font-size-small: 0.75em;
+  --ck-font-size-normal: 1em;
+  --ck-font-size-big: 1.4em;
+  --ck-font-size-large: 1.8em;
+  --ck-ui-component-min-height: 2.3em;
+  --ck-ui-component-active-shadow: inset 2.5px 2.5px 3px 0 rgba(0,0,0,.13);
+}
+
+/* Ensure icons and buttons are properly displayed */
+.ck-reset_all, .ck-reset_all * {
+  box-sizing: border-box;
+  width: auto;
+  height: auto;
+  position: static;
+}
+
+/* CRITICAL FIX FOR DROPDOWN VISIBILITY */
+.ck.ck-dropdown .ck-dropdown__panel {
+  /* These are the crucial styles for dropdown visibility */
+  position: absolute !important;
+  z-index: 9999 !important;
+  max-height: 300px !important;
+  overflow-y: auto !important;
+  background: white !important;
+  border: 1px solid #ccc !important;
+  border-radius: 0 0 4px 4px !important;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2) !important;
+  /* Width control */
+  min-width: 100% !important;
+  display: none !important; /* Hide by default */
+}
+
+/* This ensures dropdown options are visible when clicked */
+.ck.ck-dropdown .ck-dropdown__panel {
+  visibility: visible !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* Make sure heading dropdown items have proper styling */
+.ck.ck-dropdown .ck-dropdown__panel .ck-list__item,
+.ck.ck-dropdown .ck-dropdown__panel .ck-button {
+  display: block !important;
+  width: 100% !important;
+  text-align: left !important;
+  padding: 8px 16px !important;
+  border-radius: 0 !important;
+  border: none !important;
+}
+
+/* Highlight dropdown items on hover */
+.ck.ck-dropdown .ck-dropdown__panel .ck-list__item:hover,
+.ck.ck-dropdown .ck-dropdown__panel .ck-button:hover {
+  background-color: #f0f0f0 !important;
+}
+
+/* Style for selected dropdown items */
+.ck.ck-dropdown .ck-dropdown__panel .ck-list__item.ck-on {
+  background-color: #e6f2ff !important;
+}
+
+/* Force dropdown to be visible ONLY when parent is open */
+.ck.ck-dropdown.ck-dropdown_open .ck-dropdown__panel {
+  display: block !important; /* Show only when dropdown is open */
+}
+
+/* Remove problematic rule */
+.ck-dropdown__panel-visible {
+  /* display: none !important; - REMOVED */
+}
+
+/* Remove problematic dropdown styles for heading dropdown */
+.ck-toolbar .ck-dropdown.ck-heading-dropdown .ck-dropdown__panel .ck-list__item {
+  /* No specific overrides needed, using general dropdown styling */
+  cursor: pointer !important;
+}
+
+/* Force heading dropdown to stay above content */
+.ck-dropdown__panel[class*=heading] {
+  /* No need for different z-index for heading dropdown */
+}
+
+/* Remove enhanced position control for dropdowns that might conflict */
+.ck.ck-dropdown .ck-dropdown__panel {
+  /* left: 0 !important; - REMOVED */
+  /* width: max-content !important; - REMOVED */
+  /* min-width: 15em !important; - REMOVED */
+}
+
+/* Critical fix for ReactQuill editor dropdowns */
+.ql-picker-options {
+  display: none !important;
+  visibility: hidden !important;
+  position: absolute !important;
+  opacity: 0 !important;
+  max-height: 0 !important;
+  overflow: hidden !important;
+  pointer-events: none !important;
+  transform: translateY(-10px) !important;
+}
+
+.ql-expanded .ql-picker-options {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  z-index: 9999 !important;
+  max-height: 200px !important;
+  overflow: auto !important;
+  pointer-events: auto !important;
+  transform: translateY(0) !important;
+}
+
+/* Specific fix for header dropdown */
+.ql-header .ql-picker-options {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  height: 0 !important;
+}
+
+.ql-header.ql-expanded .ql-picker-options {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  height: auto !important;
+}
+
+/* Force visibility of all editor components */
+.quill,
+.ql-toolbar,
+.ql-container,
+.ql-editor,
+.ql-editor *,
+.enhanced-quill-editor,
+.enhanced-quill-editor * {
+  visibility: visible !important;
+  display: block !important;
+  opacity: 1 !important;
+}
+
+/* Specific overrides for toolbar items */
+.ql-formats {
+  display: flex !important;
+}
+
+.ql-formats button,
+.ql-formats .ql-picker {
+  display: inline-block !important;
+}
+
+/* Header dropdown specific fixes */
+.ql-picker.ql-header {
+  position: relative !important;
+}
+
+.ql-picker.ql-header .ql-picker-options {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  transform: translateY(-10px);
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.ql-picker.ql-header.ql-expanded .ql-picker-options {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  transform: translateY(0);
+}
+
+.ql-toolbar.ql-snow {
+  display: flex !important;
+  flex-wrap: wrap !important;
+}
+
+/* Ensure proper z-index for tooltips and dropdown menus */
+.ql-tooltip {
+  z-index: 10000 !important;
+} 

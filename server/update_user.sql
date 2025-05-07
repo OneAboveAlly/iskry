@@ -1,0 +1,1 @@
+UPDATE "User" SET "isAdmin" = true WHERE id = 9; 

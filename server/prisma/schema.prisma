@@ -1,0 +1,192 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  name      String
+  surname   String
+  email     String   @unique
+  password  String
+  phone     String?  // Opcjonalny numer telefonu
+  approved  Boolean  @default(false)
+  isAdmin   Boolean  @default(false)
+  role      Role     @default(PENDING)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  posts     Post[]
+  announcements Announcement[]
+  materials Material[]    // relation to materials assigned to this user
+  comments  Comment[]
+  notifications Notification[] // relation to user notifications
+  youtubeVideos YouTubeVideo[] // relation to YouTube videos added by this user
+  passwordResets PasswordReset[] // relation to password reset tokens
+  availabilities   Availability[]
+  bookings         Booking[]
+  urgentRequests   UrgentRequest[]
+}
+
+model Post {
+  id          Int      @id @default(autoincrement())
+  title       String
+  content     String
+  imageUrl    String?  // URL of the post image
+  publishedAt DateTime // custom publication date
+  author      User     @relation(fields: [authorId], references: [id])
+  authorId    Int
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  comments    Comment[]
+  notifications Notification[]
+}
+
+model Announcement {
+  id        Int      @id @default(autoincrement())
+  title     String
+  content   String
+  link      String?    // opcjonalny link (np. do spotkania)
+  isPublic  Boolean  @default(false) // true - widoczne na home/aktualnosci, false - tylko dla zalogowanych
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  author    User     @relation(fields: [authorId], references: [id])
+  authorId  Int
+}
+
+model Material {
+  id        Int      @id @default(autoincrement())
+  title     String
+  fileUrl   String     // ścieżka do pliku PDF
+  studentId Int
+  student   User     @relation(fields: [studentId], references: [id])
+  createdAt DateTime @default(now())
+}
+
+model PageContent {
+  id        Int      @id @default(autoincrement())
+  slug      String   @unique
+  title     String
+  content   String   @db.Text
+  imageUrl  String?
+  backgroundImageUrl String? @map("background_image_url")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("page_content")
+}
+
+model Comment {
+  id        Int      @id @default(autoincrement())
+  content   String
+  post      Post     @relation(fields: [postId], references: [id])
+  postId    Int
+  author    User     @relation(fields: [authorId], references: [id])
+  authorId  Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Notification {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  postId    Int?
+  content   String
+  isRead    Boolean  @default(false)
+  archived  Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user      User     @relation(fields: [userId], references: [id])
+  post      Post?    @relation(fields: [postId], references: [id])
+
+  @@index([userId])
+  @@index([postId])
+}
+
+model Settings {
+  id            Int      @id @default(autoincrement())
+  key           String   @unique  // e.g. "phone", "email", "facebook", etc.
+  value         String   // The actual value (phone number, URL, etc.)
+  type          String   // "contact" or "social"
+  label         String   // Display label
+  icon          String?  // Icon name (for social media)
+  displayOrder  Int      @default(0)
+  maxBookingsPerUser Int? // Maksymalna liczba rezerwacji na użytkownika
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model YouTubeVideo {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String?
+  videoUrl    String   // full YouTube URL
+  videoId     String   // YouTube video ID (extracted from URL)
+  topic       String?  // optional topic/category
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  authorId    Int
+  author      User     @relation(fields: [authorId], references: [id])
+}
+
+model PasswordReset {
+  id        Int      @id @default(autoincrement())
+  token     String   @unique
+  userId    Int
+  user      User     @relation(fields: [userId], references: [id])
+  expiresAt DateTime
+  used      Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+model Availability {
+  id        Int      @id @default(autoincrement())
+  adminId   Int
+  admin     User     @relation(fields: [adminId], references: [id])
+  date      DateTime
+  fromHour  String   // np. "09:00"
+  toHour    String   // np. "15:00"
+  createdAt DateTime @default(now())
+}
+
+model ReservationType {
+  id          Int      @id @default(autoincrement())
+  name        String   // np. "Konsultacja duchowa"
+  duration    Int      // czas trwania w minutach (np. 60 = 1h)
+  description String?  // opcjonalny opis
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  bookings    Booking[]
+}
+
+model Booking {
+  id               Int      @id @default(autoincrement())
+  userId           Int
+  user             User     @relation(fields: [userId], references: [id])
+  dateTime         DateTime
+  endTime          DateTime // dodane pole - koniec rezerwacji
+  status           String   // 'booked' | 'cancelled'
+  reservationType  ReservationType? @relation(fields: [reservationTypeId], references: [id])
+  reservationTypeId Int?
+  createdAt        DateTime @default(now())
+}
+
+model UrgentRequest {
+  id              Int      @id @default(autoincrement())
+  userId          Int
+  user            User     @relation(fields: [userId], references: [id])
+  message         String
+  status          String   // 'pending' | 'confirmed' | 'rejected'
+  rejectionReason String?  // Optional reason for rejection
+  createdAt       DateTime @default(now())
+}
+
+enum Role {
+  ADMIN
+  STUDENT
+  PENDING
+} 

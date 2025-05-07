@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/jpeg" href="/images/mini_icon.jpg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zarządzanie iskrzącym</title>
+    <script>
+      // Fix for ReactQuill editor visibility issues
+      document.addEventListener('DOMContentLoaded', function() {
+        // Give React time to render
+        setTimeout(function() {
+          // Make editor elements visible
+          const fixEditorVisibility = function() {
+            const editorElements = document.querySelectorAll('.ql-toolbar, .ql-container, .ql-editor, .quill, .react-quill, .enhanced-quill-editor, .ql-formats, .ql-picker, .ql-picker-label');
+            editorElements.forEach(function(element) {
+              element.style.display = element.classList.contains('ql-picker-options') ? 'none' : 'block';
+              element.style.visibility = 'visible';
+              element.style.opacity = '1';
+            });
+            
+            // Fix toolbar buttons
+            const formatButtons = document.querySelectorAll('.ql-formats button, .ql-formats .ql-picker');
+            formatButtons.forEach(function(button) {
+              button.style.display = 'inline-block';
+              button.style.visibility = 'visible';
+              button.style.opacity = '1';
+            });
+          };
+          
+          // Run once and periodically for a short time
+          fixEditorVisibility();
+          const interval = setInterval(fixEditorVisibility, 500);
+          setTimeout(function() {
+            clearInterval(interval);
+          }, 5000);
+        }, 1000);
+      });
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html> 

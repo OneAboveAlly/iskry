@@ -1,0 +1,58 @@
+📛 Cel:
+Stwórz kompletny system rezerwacji spotkań przez internet z kalendarzem, dostępnością i powiadomieniami (dla aplikacji React + Node.js + Socket.io).
+
+🧠 Scenariusz:
+- Admin ustala dostępność: dni i godziny, w których może przyjąć spotkania.
+- Użytkownik może wybrać termin z tych dostępnych i umówić się.
+- Po umówieniu terminu:
+  - Termin znika z kalendarza (jest zarezerwowany),
+  - Admin dostaje powiadomienie przez Socket.io (`new_booking`).
+- Użytkownik widzi statusy swoich terminów.
+
+📦 Dodatkowa funkcja: „Pilna prośba o spotkanie”
+- Jeśli nie ma wolnych terminów, użytkownik może raz wysłać pilną prośbę (`urgentRequest`) o spotkanie w dowolnym czasie.
+- Nie można wysłać kolejnej, dopóki admin nie odpowie (`confirmed` lub `rejected`).
+- Admin widzi pilne prośby na liście i może je zaakceptować lub odrzucić (status).
+- Po reakcji admina, użytkownik może znów wysłać kolejną pilną prośbę.
+
+🛠️ Co zrób:
+1. Stwórz komponent `BookingCalendar` w React:
+   - Kalendarz dni z dostępnością (np. `react-calendar` lub `react-big-calendar`).
+   - Komponent do rezerwacji terminu i wysyłania prośby.
+   - API do pobierania dostępnych terminów i zapisywania rezerwacji.
+   - UI do wysyłania pilnej prośby.
+
+2. Dodaj logikę admina:
+   - Panel do ustawiania dostępnych dni/godzin (zapis do bazy).
+   - Lista rezerwacji i pilnych próśb.
+   - Opcja zaakceptowania lub odrzucenia pilnej prośby.
+
+3. Dodaj powiadomienia:
+   - Wysłanie powiadomienia Socket.io (`new_booking`, `new_urgent_request`, `urgent_request_response`) do admina.
+
+4. Backend:
+   - API: `/api/availability`, `/api/bookings`, `/api/urgent-request`
+   - Modele Prisma: `Booking`, `Availability`, `UrgentRequest`
+   - Autoryzacja: użytkownik może mieć tylko 1 aktywną pilną prośbę.
+
+📄 Dane przykładowe:
+Model `Booking`:
+- id, userId, dateTime, status: 'booked' | 'cancelled'
+
+Model `Availability`:
+- id, adminId, date, fromHour, toHour
+
+Model `UrgentRequest`:
+- id, userId, message, status: 'pending' | 'confirmed' | 'rejected'
+
+🎨 UI:
+- Komponent kalendarza + lista terminów
+- Modal do wysyłania pilnej prośby
+- Lista statusów rezerwacji użytkownika
+- Admin panel z terminami i przyciskami do akceptacji pilnych zgłoszeń
+
+✅ Cel końcowy:
+- Admin widzi kto się umówił
+- Użytkownik może umawiać się w wolne sloty
+- Powiadomienia idą przez Socket.io
+- System obsługuje „pilne zgłoszenie” raz na raz

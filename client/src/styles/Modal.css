@@ -1,0 +1,363 @@
+/* Modal styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 600px;
+  position: relative;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+/* Confirmation modal */
+.confirm-modal {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.confirm-modal h2 {
+  color: #1a365d;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.confirm-modal p {
+  color: #4a5568;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.modal-btn {
+  padding: 0.5rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+  font-size: 1rem;
+}
+
+.confirm-btn {
+  background-color: #4299e1;
+  color: white;
+}
+
+.confirm-btn:hover {
+  background-color: #3182ce;
+}
+
+.cancel-btn {
+  background-color: #e2e8f0;
+  color: #4a5568;
+}
+
+.cancel-btn:hover {
+  background-color: #cbd5e0;
+}
+
+.delete-btn {
+  background-color: #f56565;
+  color: white;
+}
+
+.delete-btn:hover {
+  background-color: #e53e3e;
+}
+
+/* Edit modal */
+.edit-modal {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 800px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.edit-modal h2 {
+  color: #1a365d;
+  margin-bottom: 1.5rem;
+  font-size: 1.75rem;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 0.75rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  color: #4a5568;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.edit-input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: all 0.2s;
+}
+
+.edit-input:focus {
+  border-color: #4299e1;
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.2);
+  outline: none;
+}
+
+/* Close button */
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #718096;
+  cursor: pointer;
+  padding: 0.5rem;
+  line-height: 1;
+  border-radius: 4px;
+}
+
+.modal-close:hover {
+  background-color: #f7fafc;
+  color: #4a5568;
+}
+
+/* Add announcement button */
+.add-announcement-btn {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background-color: #4299e1;
+  color: white;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+  z-index: 100;
+}
+
+.add-announcement-btn:hover {
+  background-color: #3182ce;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.add-announcement-btn:active {
+  transform: translateY(0);
+}
+
+/* Loading state */
+.loading-btn {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.loading-btn::after {
+  content: '';
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  margin-left: 0.5rem;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.75s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ReactQuill Editor in Modal */
+.editor-wrapper {
+  margin: 1.5rem 0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.announcement-editor {
+  height: 400px;
+  background: white;
+}
+
+/* Toolbar Styles */
+.ql-toolbar.ql-snow {
+  border: 1px solid #e2e8f0 !important;
+  border-top-left-radius: 8px !important;
+  border-top-right-radius: 8px !important;
+  background: #f8fafc !important;
+  padding: 12px !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 10px !important;
+}
+
+.ql-toolbar.ql-snow .ql-formats {
+  margin-right: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+}
+
+/* Toolbar Buttons */
+.ql-toolbar.ql-snow button {
+  width: 40px !important;
+  height: 40px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 8px !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 6px !important;
+  background: white !important;
+  margin: 0 !important;
+}
+
+.ql-toolbar.ql-snow button:hover {
+  background: #f1f5f9 !important;
+  border-color: #cbd5e0 !important;
+}
+
+.ql-toolbar.ql-snow button.ql-active {
+  background: #e6f2ff !important;
+  border-color: #4299e1 !important;
+  color: #4299e1 !important;
+}
+
+/* Dropdown Styles */
+.ql-toolbar.ql-snow .ql-picker {
+  height: 40px !important;
+}
+
+.ql-toolbar.ql-snow .ql-picker-label {
+  height: 40px !important;
+  padding: 0 12px !important;
+  display: flex !important;
+  align-items: center !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 6px !important;
+  font-size: 14px !important;
+  color: #4a5568 !important;
+  background: white !important;
+}
+
+.ql-toolbar.ql-snow .ql-picker-label:hover {
+  border-color: #cbd5e0 !important;
+}
+
+/* Editor Container */
+.ql-container.ql-snow {
+  border: 1px solid #e2e8f0 !important;
+  border-bottom-left-radius: 8px !important;
+  border-bottom-right-radius: 8px !important;
+  font-size: 16px !important;
+  font-family: inherit !important;
+}
+
+.ql-editor {
+  min-height: 200px !important;
+  padding: 16px !important;
+  font-size: 16px !important;
+  line-height: 1.6 !important;
+  color: #2d3748 !important;
+}
+
+.ql-editor p {
+  margin-bottom: 1em !important;
+}
+
+/* Font Size Picker */
+.ql-snow .ql-size .ql-picker-label::before,
+.ql-snow .ql-size .ql-picker-item::before {
+  content: 'Rozmiar' !important;
+}
+
+/* Font Family Picker */
+.ql-snow .ql-font .ql-picker-label::before,
+.ql-snow .ql-font .ql-picker-item::before {
+  content: 'Czcionka' !important;
+}
+
+/* Header Picker */
+.ql-snow .ql-header .ql-picker-label::before,
+.ql-snow .ql-header .ql-picker-item::before {
+  content: 'Nagłówek' !important;
+}
+
+/* Picker Options */
+.ql-snow .ql-picker.ql-expanded .ql-picker-options {
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 6px !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+  padding: 8px 0 !important;
+  background: white !important;
+}
+
+.ql-snow .ql-picker-options .ql-picker-item {
+  padding: 8px 20px !important;
+  font-size: 14px !important;
+  color: #4a5568 !important;
+}
+
+.ql-snow .ql-picker-options .ql-picker-item:hover {
+  background-color: #f7fafc !important;
+  color: #2d3748 !important;
+}
+
+/* Color Picker */
+.ql-snow .ql-color-picker .ql-picker-options {
+  padding: 8px !important;
+  width: 192px !important;
+}
+
+.ql-snow .ql-color-picker .ql-picker-item {
+  width: 24px !important;
+  height: 24px !important;
+  margin: 2px !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 3px !important;
+} 

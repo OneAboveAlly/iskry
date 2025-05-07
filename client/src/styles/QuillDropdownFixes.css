@@ -1,0 +1,112 @@
+/* Critical fixes for ReactQuill dropdowns */
+
+/* Base styles for picker */
+.ql-picker {
+  position: relative !important;
+  display: inline-block !important;
+  vertical-align: middle !important;
+  height: 32px !important;
+  width: auto !important;
+}
+
+/* Label styles */
+.ql-picker-label {
+  display: flex !important;
+  align-items: center !important;
+  padding: 0 8px !important;
+  height: 32px !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 4px !important;
+  background: white !important;
+  cursor: pointer !important;
+  color: #333 !important;
+  min-width: 80px !important;
+}
+
+/* Critical fix for dropdown options */
+.ql-picker-options {
+  display: none !important;
+  visibility: hidden !important;
+  position: absolute !important;
+  top: 100% !important;
+  left: 0 !important;
+  background: white !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 4px !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+  z-index: 9999 !important;
+  min-width: 120px !important;
+  padding: 4px 0 !important;
+  margin-top: 4px !important;
+}
+
+/* Show options when expanded */
+.ql-picker.ql-expanded .ql-picker-options {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Dropdown items */
+.ql-picker-item {
+  display: block !important;
+  padding: 6px 12px !important;
+  cursor: pointer !important;
+  color: #333 !important;
+  line-height: 1.5 !important;
+}
+
+.ql-picker-item:hover {
+  background-color: #f8fafc !important;
+  color: #67879E !important;
+}
+
+/* Color picker specific styles */
+.ql-color-picker .ql-picker-options,
+.ql-background .ql-picker-options {
+  padding: 8px !important;
+  width: 180px !important;
+}
+
+.ql-color-picker .ql-picker-item,
+.ql-background .ql-picker-item {
+  width: 20px !important;
+  height: 20px !important;
+  margin: 2px !important;
+  border-radius: 3px !important;
+  display: inline-block !important;
+}
+
+/* Header dropdown specific styles */
+.ql-header .ql-picker-label {
+  width: auto !important;
+  min-width: 100px !important;
+}
+
+.ql-header .ql-picker-label::before {
+  content: 'Format' !important;
+}
+
+.ql-header .ql-picker-item {
+  padding: 8px 12px !important;
+}
+
+/* Force visibility of all picker components */
+.ql-picker,
+.ql-picker-label,
+.ql-picker.ql-expanded .ql-picker-options,
+.ql-picker-item {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Ensure proper z-index stacking */
+.ql-toolbar {
+  z-index: 10 !important;
+  position: relative !important;
+}
+
+.ql-picker.ql-expanded {
+  z-index: 9999 !important;
+  position: relative !important;
+} 

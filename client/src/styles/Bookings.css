@@ -1,0 +1,38 @@
+.bookings-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.bookings-header {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.bookings-header h1 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.bookings-header p {
+  color: #666;
+  font-size: 1.1rem;
+}
+
+.bookings-content {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .bookings-page {
+    padding: 1rem;
+  }
+
+  .bookings-content {
+    padding: 1rem;
+  }
+} 

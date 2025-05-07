@@ -1,0 +1,335 @@
+.booking-calendar {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.calendar-section {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.calendar-section h2 {
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.time-slots-section {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.time-slots {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.time-slot-container {
+  margin: 5px;
+  display: inline-block;
+}
+
+.time-slot {
+  padding: 10px 15px;
+  margin: 5px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 80px;
+  text-align: center;
+}
+
+.time-slot:hover {
+  background-color: #f0f0f0;
+  border-color: #999;
+}
+
+.time-slot.booked {
+  background-color: #f8f8f8;
+  color: #999;
+  cursor: not-allowed;
+  border-color: #ddd;
+}
+
+.time-slot.booked:hover {
+  background-color: #f8f8f8;
+  border-color: #ddd;
+}
+
+.urgent-request-section {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.urgent-request-button {
+  padding: 0.75rem 1.5rem;
+  background: #3a506b;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.urgent-request-button:hover {
+  background: #2c3e50;
+}
+
+.urgent-request-status {
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 500px;
+  width: 90%;
+}
+
+.modal-content textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin: 1rem 0;
+  resize: vertical;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.modal-buttons button {
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.modal-buttons button:first-child {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+}
+
+.modal-buttons button:last-child {
+  background-color: #f8f9fa;
+  border: 1px solid #ddd;
+}
+
+.success-message {
+  background-color: #d4edda;
+  color: #155724;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.error-message {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.error {
+  color: #dc3545;
+  padding: 1rem;
+  background: #f8d7da;
+  border-radius: 4px;
+  margin: 1rem 0;
+}
+
+.calendar-available-day {
+  background: rgba(91, 192, 222, 0.7) !important;
+  color: #fff !important;
+  border-radius: 50% !important;
+  font-weight: bold;
+  box-shadow: 0 0 0 2px rgba(58, 80, 107, 0.2);
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.calendar-available-day:hover {
+  background: rgba(91, 192, 222, 0.9) !important;
+  transform: scale(1.1);
+  box-shadow: 0 0 0 3px rgba(58, 80, 107, 0.3);
+}
+
+.calendar-today {
+  border: 2px solid #3a506b !important;
+  font-weight: bold;
+}
+
+.calendar-available-day.calendar-today {
+  background: #3a506b !important;
+  color: white !important;
+  box-shadow: 0 0 0 3px rgba(58, 80, 107, 0.3);
+}
+
+.calendar-available-day.calendar-selected {
+  background: #2c3e50 !important;
+  color: white !important;
+  box-shadow: 0 0 0 3px rgba(44, 62, 80, 0.5);
+  transform: scale(1.1);
+  position: relative;
+  z-index: 10;
+}
+
+.calendar-available-day.calendar-selected:after {
+  content: "✓";
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  font-size: 10px;
+}
+
+/* Styl dla nieaktywnych dni kalendarza */
+.react-calendar__tile:disabled {
+  background-color: #f0f0f0 !important;
+  color: #ccc !important;
+  cursor: not-allowed !important;
+}
+
+/* Styl dla dni weekendowych */
+.react-calendar__month-view__days__day--weekend {
+  color: #d4666c;
+}
+
+/* Styl dla aktywnych dni */
+.react-calendar__tile--active,
+.react-calendar__tile--active:enabled:hover,
+.react-calendar__tile--active:enabled:focus {
+  background: #3a506b !important;
+  color: #fff !important;
+  border-radius: 50% !important;
+  font-weight: bold;
+}
+
+/* Style dla nawigacji kalendarza */
+.react-calendar__navigation {
+  margin-bottom: 10px;
+}
+
+.react-calendar__navigation button {
+  min-width: 44px;
+  background: none;
+  font-size: 16px;
+  padding: 8px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.react-calendar__navigation button:enabled:hover,
+.react-calendar__navigation button:enabled:focus {
+  background-color: rgba(58, 80, 107, 0.1);
+}
+
+.react-calendar__month-view__weekdays__weekday {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 13px;
+  padding: 10px 0;
+}
+
+@media (max-width: 768px) {
+  .booking-calendar {
+    padding: 1rem;
+  }
+
+  .calendar-section,
+  .time-slots-section,
+  .urgent-request-section {
+    padding: 1rem;
+  }
+
+  .time-slots {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  }
+}
+
+.my-bookings-section {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 2rem;
+}
+
+.my-bookings-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.my-booking-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 16px;
+}
+
+.my-booking-item:last-child {
+  border-bottom: none;
+}
+
+.cancel-booking-btn {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 14px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: background 0.2s;
+}
+
+.cancel-booking-btn:hover {
+  background-color: #b52a37;
+} 

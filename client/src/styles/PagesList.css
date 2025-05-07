@@ -1,0 +1,71 @@
+.pages-list {
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.pages-list-empty {
+  text-align: center;
+  padding: 2rem;
+  color: #777;
+}
+
+.page-item {
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.page-item:hover {
+  background-color: #f5f8ff;
+}
+
+.page-item.selected {
+  background-color: #e9f0ff;
+  border-left: 3px solid #3a506b;
+}
+
+.page-item-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.page-item-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+  color: #333;
+}
+
+.page-item-slug {
+  font-size: 0.8rem;
+  color: #666;
+  font-family: monospace;
+}
+
+.page-item-dates {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: #888;
+}
+
+/* Scrollbar styling */
+.pages-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.pages-list::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.pages-list::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 3px;
+}
+
+.pages-list::-webkit-scrollbar-thumb:hover {
+  background: #999;
+} 

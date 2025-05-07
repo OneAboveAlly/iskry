@@ -1,7 +1,5 @@
 # Iskrzacy - Platforma do Rozwoju Duchowego
 
-![Iskrzacy Logo](client/src/assets/logo.png)
-
 ## 📝 Opis Projektu
 
 Iskrzacy to nowoczesna platforma internetowa dedykowana rozwojowi duchowemu. Projekt łączy w sobie zaawansowane technologie webowe z intuicyjnym interfejsem użytkownika, oferując kompleksowe narzędzia do rozwoju osobistego i duchowego.
@@ -39,8 +37,8 @@ Iskrzacy to nowoczesna platforma internetowa dedykowana rozwojowi duchowemu. Pro
 
 1. Sklonuj repozytorium:
 ```bash
-git clone https://github.com/twoje-konto/iskrzacy.git
-cd iskrzacy
+git clone https://github.com/OneAboveAlly/iskry.git
+cd iskry
 ```
 
 2. Zainstaluj zależności:
@@ -76,15 +74,11 @@ Projekt implementuje najlepsze praktyki bezpieczeństwa:
 
 Ten projekt jest objęty licencją ISC.
 
-## 👥 Autorzy
+## 👥 Autor
 
-- [Twoje Imię i Nazwisko]
+- P.N.
 
 ## 📞 Kontakt
 
-- Email: [twój email]
-- GitHub: [link do twojego profilu]
-
-## 🙏 Podziękowania
-
-Specjalne podziękowania dla wszystkich, którzy przyczynili się do rozwoju projektu. 
+- Email: nowatcinski.p@gmail.com
+- GitHub: https://github.com/OneAboveAlly

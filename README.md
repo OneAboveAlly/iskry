@@ -13,6 +13,13 @@ Iskrzacy to nowoczesna platforma internetowa dedykowana rozwojowi duchowemu. Pro
 - Responsywny interfejs użytkownika
 - Bezpieczna autentykacja użytkowników
 
+## Screenshot
+1. https://i.imgur.com/HK1TKEd.png
+2. https://i.imgur.com/VdyFYKW.png
+3. https://i.imgur.com/JZ8Nscb.png
+4. https://i.imgur.com/sgLWhw3.png
+5. https://i.imgur.com/DLvwR47.png
+
 ## 🛠️ Technologie
 
 ### Frontend
